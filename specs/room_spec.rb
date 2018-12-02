@@ -11,7 +11,11 @@ class TestRoom < MiniTest::Test
     @song_2 = Song.new({artist: "Metallica", song_title: "Master of Puppets"})
     @song_3 = Song.new({artist: "Depeche Mode", song_title: "Never Let Me Down"})
     @guest_1 = Guest.new({name: "Jasmine", wallet: 20})
+    @guest_2 = Guest.new({name: "Bobbert", wallet: 35})
+    @guest_3 = Guest.new({name: "Raisin", wallet: 50})
     @room_1 = Room.new({genre: "rock", capacity: 10, people_in_room: [], song_list: [@song_1, @song_2]})
+
+    @guests = [@guest_1, @guest_2, @guest_3]
   end
 
 
@@ -46,6 +50,10 @@ class TestRoom < MiniTest::Test
     assert_equal(3, @room_1.room_song_list.count)
   end
 
+  def test_capacity_full_deny_check_in
+    @room_1.check_in_guest(@guest_1)
+    assert_equal(9, @room_1.room_capacity)
+  end
 
 
 

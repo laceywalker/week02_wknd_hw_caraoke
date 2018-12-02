@@ -17,6 +17,10 @@ class TestGuest < MiniTest::Test
     assert_equal(100, @guest_1.guest_wallet)
   end
 
+  def test_pay_karaoke_fee
+    assert_equal(90, @guest_1.pay_karaoke_fee)
+  end
+
 
 
 end
