@@ -26,6 +26,16 @@ class Room
     @room_song_list << song
   end
 
+  def play_song(song_to_play) #remember that song and song-to-play are DIFFERENT placeholders
+    for song in @room_song_list
+      if song == song_to_play
+        return "playing #{song.song_title}"
+      else
+        return "song not available"
+      end
+    end
+  end
+
 
 
 
